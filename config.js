@@ -201,7 +201,7 @@ System.config({
       "github:components/jquery@2.1.4",
       "github:ajaxorg/ace-builds@1.1.9",
       "github:beautify-web/js-beautify@1.5.10",
-      "github:gooy/aurelia-animator-velocity@0.0.2/animator",
+      "github:gooy/aurelia-animator-velocity@0.0.3/animator",
       "github:gooy/aurelia-markdown@0.0.2/markdown",
       "github:rstacruz/nprogress@0.2.0",
       "github:distros/bootstrap-less@3.3.8/js/collapse",
@@ -213,8 +213,8 @@ System.config({
       "github:gooy/aurelia-smooth-scroll@0.0.2/smooth-scroll",
       "github:gooy/aurelia-smooth-scroll@0.0.2/index",
       "github:gooy/aurelia-smooth-scroll@0.0.2",
-      "github:gooy/aurelia-animator-velocity@0.0.2/index",
-      "github:gooy/aurelia-animator-velocity@0.0.2",
+      "github:gooy/aurelia-animator-velocity@0.0.3/index",
+      "github:gooy/aurelia-animator-velocity@0.0.3",
       "main",
       "loading-indicator",
       "github:marcuswestin/store.js@1.3.17/store",
@@ -252,7 +252,7 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.13",
     "font-awesome": "npm:font-awesome@4.3.0",
     "gooy/aurelia-ace": "github:gooy/aurelia-ace@0.0.1",
-    "gooy/aurelia-animator-velocity": "github:gooy/aurelia-animator-velocity@0.0.2",
+    "gooy/aurelia-animator-velocity": "github:gooy/aurelia-animator-velocity@0.0.3",
     "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@0.0.2",
     "gooy/aurelia-smooth-scroll": "github:gooy/aurelia-smooth-scroll@0.0.2",
     "js-beautify": "github:beautify-web/js-beautify@1.5.10",
@@ -376,6 +376,10 @@ System.config({
       "js-beautify": "github:beautify-web/js-beautify@1.5.10"
     },
     "github:gooy/aurelia-animator-velocity@0.0.2": {
+      "jsol": "github:daepark/JSOL@master",
+      "velocity": "github:julianshapiro/velocity@1.2.2"
+    },
+    "github:gooy/aurelia-animator-velocity@0.0.3": {
       "jsol": "github:daepark/JSOL@master",
       "velocity": "github:julianshapiro/velocity@1.2.2"
     },
