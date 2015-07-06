@@ -6,6 +6,12 @@ import 'nprogress';
 import 'bootstrap-less/js/collapse';
 import 'bootstrap-less/js/transition';
 
+import 'ace';
+import 'ace/theme-monokai';
+import 'ace/mode-javascript';
+import 'gooy/aurelia-ace';
+import 'js-beautify';
+
 import {SmoothScroll} from 'gooy/aurelia-smooth-scroll';
 
 //Fix Prism to allow dot character in html attribute names

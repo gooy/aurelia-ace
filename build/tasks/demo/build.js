@@ -67,9 +67,7 @@ gulp.task('demo-build-jspm-packages', function (done) {
     "jspm_packages/github/aurelia/html-template-element@*.js",
     "jspm_packages/github/aurelia/html-template-element@*/HTMLTemplateElement.js",
     "jspm_packages/github/aurelia/html-template-element@*/HTMLTemplateElement.min.js",
-    "jspm_packages/github/gooy/aurelia-dialog@*/*.html",
-    "jspm_packages/npm/font-awesome@*/css/**/*",
-    "jspm_packages/npm/font-awesome@*/fonts/**/*",
+    "jspm_packages/github/ajaxorg/ace-builds@*/**/*",
     "jspm_packages/*.js",
     "jspm_packages/*.map"
   ];
@@ -109,8 +107,6 @@ gulp.task('demo-clean-dist', function() {
  */
 gulp.task('demo-build', function(done) {
   return runSequence(
-    'demo-clean-dist',
-    'demo-unbundle',
     'demo-build-images',
     'demo-iconfont',
     ['demo-build-system','demo-build-html','demo-build-root','demo-build-assets'],
@@ -134,6 +130,7 @@ gulp.task('demo-build-prod', function(done) {
     'demo-build-images',
     'jspm-link',
     'demo-build-jspm-packages',
+    'demo-unbundle',
     done
   );
 });

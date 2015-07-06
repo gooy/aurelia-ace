@@ -27,7 +27,7 @@ gulp.task('demo-bundle', function (done) {
     'github:aurelia/metadata@0.7.0',
     'github:aurelia/task-queue@0.6.0',
     'github:aurelia/event-aggregator@0.6.0',
-    'github:aurelia/templating@0.13.0',
+    'github:aurelia/templating@0.13.1',
     'github:aurelia/history@0.6.0',
     'github:aurelia/history-browser@0.6.0',
     'github:aurelia/event-aggregator@0.6.0',
