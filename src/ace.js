@@ -92,8 +92,6 @@ export class AceEditor {
   updateOptions(options){
     if(!this.editor) return;
 
-    console.log('options', options);
-
     if(!options.lint){
       this.editor.session.setUseWorker(false);
     }else{

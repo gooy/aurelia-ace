@@ -94,6 +94,16 @@ gulp.task('demo-build-jspm-packages', function (done) {
 
 });
 
+gulp.task('demo-dist-filter', function(done) {
+  var patterns = [
+    dirs.build+"/app/**/*.js",
+    dirs.build+"/app/**/*.map"
+  ];
+  removeAll(patterns,{
+    ignore:[dirs.build+"/app/aurelia.js",dirs.build+"/app/app-bundle.js"]
+  },done);
+});
+
 /**
  * Clean the dist direcotry
  */
@@ -125,6 +135,7 @@ gulp.task('demo-build-prod', function(done) {
     ['demo-less-prod','demo-less_bootstrap-prod'],
     'demo-bundle',
     'demo-bundle-app',
+    'demo-dist-filter',
     'demo-uglify-dist',
     'demo-build-root',
     'demo-build-images',

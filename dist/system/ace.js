@@ -108,8 +108,6 @@ System.register(["aurelia-framework", "ace", "ace/theme-monokai", "ace/mode-java
           value: function updateOptions(options) {
             if (!this.editor) return;
 
-            console.log("options", options);
-
             if (!options.lint) {
               this.editor.session.setUseWorker(false);
             } else {
