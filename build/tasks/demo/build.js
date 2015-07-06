@@ -145,3 +145,27 @@ gulp.task('demo-build-prod', function(done) {
     done
   );
 });
+
+function removeAll(patterns,options,done){
+  var promises = patterns.map(function(pattern){
+    return new Promise(function(resolve,reject){
+      return glob(pattern, options, function (er, files){
+        if(er) {
+          console.error(er);
+          reject(er)
+        }
+        for(var i2 = 0, l2 = files.length; i2 < l2; i2++){
+          var file = files[i2];
+          if(fs.existsSync(file)) {
+            fs.unlinkSync(file);
+          }
+        }
+        resolve();
+      });
+    })
+  });
+
+  Promise.all(promises).then(function(){
+    done();
+  });
+}
