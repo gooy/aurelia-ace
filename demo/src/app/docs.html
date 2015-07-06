@@ -1,0 +1,61 @@
+<template>
+  <section class="au-animate page section-sidemenu">
+    
+    <aside class="au-animate" anim-enter="transition.slideLeftIn" anim-leave="transition.slideLeftOut" ref="aside">
+      
+      <header>
+        <a href="#/docs" smooth-scroll>Docs</a>
+      </header>
+
+      <nav class="sidemenu">
+        <ul class="list-group">
+          <li class="list-group-item"> <a href="#/docs/install" smooth-scroll>Installation</a></li>
+        </ul>
+      </nav>
+
+    </aside>
+    <article  class="au-animate" anim-enter="transition.slideLeftIn" anim-leave="transition.slideLeftOut" ref="article">
+
+<markdown>
+
+<h1 id="/docs">Ace Editor</h1>
+
+<p class="lead"> 
+  An custom element for <a href="http://ace.c9.io/">Ace editor</a>
+</p>
+  
+<h2 id="/docs/install">Installation</h2>
+  
+Install the package into your project using JSPM.
+
+```javascript
+jspm install gooy/aurelia-ace
+```
+
+Register it as a plugin with aurelia.
+
+```javascript
+aurelia.use.plugin('gooy/aurelia-ace')
+```
+
+Options can be specified while registering the plugin.  
+
+The options used in the example below are the defaults.
+
+```javascript
+aurelia.use.plugin('gooy/aurelia-ace',ace=>{
+  ace.setOptions({
+    showPrintMargin:false,
+    beautify: true,
+    mode:"javascript",
+    theme: "monokai"
+  });
+})
+```
+  
+</markdown>
+      
+      
+    </article>
+  </section>
+</template>

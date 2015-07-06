@@ -1,0 +1,31 @@
+<template>
+  <section class="page animate au-animate container">
+    <article class="text-center"> 
+    
+      <h1>Example</h1>
+        
+      
+      <ace ace.ref="aceEditor">
+
+      export class MarkdownCustomElement {
+      
+        static inject = [Element];
+        constructor(element){
+          this.element = element;
+        }
+        
+        attached(){
+          
+        }
+      }
+
+      </ace>
+      
+      <br/>
+      <a class="btn btn-primary" click.delegate="save()">Save</a>
+      <br/><br/>
+      The save button in this example will persist the content to the browser's local storage.
+        
+    </article>    
+  </section>
+</template>

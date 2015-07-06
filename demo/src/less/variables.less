@@ -1,0 +1,47 @@
+@color-primary: #92278F;
+@color-primary-hover: lighten(#92278F,10%);
+
+@bg-primary: #BA3A95;
+
+@grid-gutter-width:         80px;
+
+@brand-primary:         #BA3A95; // #337ab7
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+
+//------------------ 3 breakpoints system
+
+//no need to specify a breakpoint for the xs range (0-768px)
+@s: 640px; //horizontal phone/vertical tablet (768-1240px)
+@m: 1190px; //horizontal tablet / laptop (1240-1600px)
+@l: 1550px; // desktop (1600 and up)
+
+@xs-max: (@s - 1px);
+@s-max: (@m - 1px);
+@m-max: (@l - 1px);;
+
+@ranges: 'xs','s', 'm', 'l';
+@range_percentages: 90, 90, 80, 70;
+
+//----------------------- media query shortcodes
+
+//min-width versions
+@mq-s: ~"only screen and (min-width: @{s})";
+@mq-m: ~"only screen and (min-width: @{m})";
+@mq-l: ~"only screen and (min-width: @{l})";
+
+//strict versions
+@mq-s-strict: ~"only screen and (min-width: @{s}) and (max-width: @{xs-max})";
+@mq-m-strict: ~"only screen and (min-width: @{m}) and (max-width: @{s-max})";
+@mq-l-strict: ~"only screen and (min-width: @{l}) and (max-width: @{m-max})";
+
+//max-width versions
+@mq-xs-max: ~"only screen and (max-width: @{xs-max})";
+@mq-s-max: ~"only screen and (max-width: @{s-max})";
+@mq-m-max: ~"only screen and (max-width: @{m-max})";
+
+
+@mediaqueries: 1;
+@elementqueries: 0;
