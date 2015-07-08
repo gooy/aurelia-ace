@@ -18,6 +18,7 @@
     "type": "git",
     "url": "git@github.com:gooy/aurelia-ace.git"
   },
+  "main": "dist/commonjs/index.js",
   "directories": {
     "lib": "src",
     "build": "dist"
@@ -78,6 +79,7 @@
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "jasmine-jquery": "^2.1.0",
+    "karma": "^0.12.28",
     "karma-babel-preprocessor": "^5.2.1",
     "karma-jasmine-jquery": "^0.1.1",
     "karma-chrome-launcher": "^0.2.0",
@@ -94,8 +96,10 @@
     "vinyl-paths": "^1.0.0"
   },
   "jspm": {
+    "main": "index",
+    "format": "amd",
     "directories": {
-      "lib": "dist/commonjs"
+      "lib": "dist/amd"
     },
     "dependencies": {
       "ace": "github:ajaxorg/ace-builds@^1.1.9",
