@@ -139,6 +139,7 @@ gulp.task('demo-build-prod', function(done) {
     'demo-uglify-dist',
     'demo-build-root',
     'demo-build-images',
+    'demo-iconfont',
     'jspm-link',
     'demo-build-jspm-packages',
     'demo-unbundle',

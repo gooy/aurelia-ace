@@ -25,7 +25,7 @@ export function configure(aurelia) {
 
   aurelia.use
     .standardConfiguration()
-    .developmentLogging()
+    //.developmentLogging()
     .plugin('gooy/aurelia-animator-velocity')
     .plugin('gooy/aurelia-smooth-scroll')
     .plugin('gooy/aurelia-markdown')
