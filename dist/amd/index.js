@@ -13,8 +13,8 @@ define(["exports", "./ace"], function (exports, _ace) {
   });
 
   function configure(aurelia, cb) {
-    aurelia.globalizeResources("./ace");
-    if (cb !== undefined && typeof cb === "function") cb(_ace.AceEditor);
+    aurelia.globalResources("./ace");
+    if (cb !== undefined && typeof cb === 'function') cb(_ace.AceEditor);
   }
 });
 //# sourceMappingURL=index.js.map

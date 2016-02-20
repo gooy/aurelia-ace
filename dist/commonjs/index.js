@@ -15,7 +15,7 @@ Object.defineProperty(exports, "AceEditor", {
 });
 
 function configure(aurelia, cb) {
-  aurelia.globalizeResources("./ace");
-  if (cb !== undefined && typeof cb === "function") cb(_ace.AceEditor);
+  aurelia.globalResources("./ace");
+  if (cb !== undefined && typeof cb === 'function') cb(_ace.AceEditor);
 }
 //# sourceMappingURL=index.js.map

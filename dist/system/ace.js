@@ -1,13 +1,13 @@
 System.register(["aurelia-framework", "ace", "ace/theme-monokai", "ace/mode-javascript", "js-beautify", "js-beautify/beautify-css", "js-beautify/beautify-html"], function (_export) {
   "use strict";
 
-  var bindable, noView, customElement, skipContentProcessing, ace, beautify, css__beautify, html__beautify, js_beautify, css_beautify, html_beautify, AceEditor;
+  var bindable, noView, customElement, processContent, ace, beautify, css__beautify, html__beautify, js_beautify, css_beautify, html_beautify, AceEditor;
 
   var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === "function") { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError("The decorator for method " + descriptor.key + " is of the invalid type " + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer.call(target); Object.defineProperty(target, key, descriptor); }
+  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
 
   function dedent(str) {
     var match = str.match(/^[ \t]*(?=\S)/gm);
@@ -17,15 +17,15 @@ System.register(["aurelia-framework", "ace", "ace/theme-monokai", "ace/mode-java
       return el.length;
     }));
 
-    var re = new RegExp("^[ \\t]{" + indent + "}", "gm");
-    return indent > 0 ? str.replace(re, "") : str;
+    var re = new RegExp('^[ \\t]{' + indent + '}', 'gm');
+    return indent > 0 ? str.replace(re, '') : str;
   }
   return {
     setters: [function (_aureliaFramework) {
       bindable = _aureliaFramework.bindable;
       noView = _aureliaFramework.noView;
       customElement = _aureliaFramework.customElement;
-      skipContentProcessing = _aureliaFramework.skipContentProcessing;
+      processContent = _aureliaFramework.processContent;
     }, function (_ace) {
       ace = _ace["default"];
     }, function (_aceThemeMonokai) {}, function (_aceModeJavascript) {}, function (_jsBeautify) {
@@ -42,6 +42,38 @@ System.register(["aurelia-framework", "ace", "ace/theme-monokai", "ace/mode-java
 
       AceEditor = (function () {
         var _instanceInitializers = {};
+        var _instanceInitializers = {};
+
+        _createDecoratedClass(AceEditor, [{
+          key: "value",
+          decorators: [bindable],
+          initializer: function initializer() {
+            return "";
+          },
+          enumerable: true
+        }], [{
+          key: "setOptions",
+          value: function setOptions(options) {
+            AceEditor.options = Object.assign(AceEditor.options, options);
+          }
+        }, {
+          key: "options",
+          value: {
+            showPrintMargin: false,
+            beautify: true,
+            mode: "javascript",
+            theme: "monokai"
+          },
+          enumerable: true
+        }, {
+          key: "uid",
+          value: 1,
+          enumerable: true
+        }, {
+          key: "inject",
+          value: [Element],
+          enumerable: true
+        }], _instanceInitializers);
 
         function AceEditor(element) {
           _classCallCheck(this, _AceEditor);
@@ -54,9 +86,7 @@ System.register(["aurelia-framework", "ace", "ace/theme-monokai", "ace/mode-java
           this._uid = ++AceEditor.uid;
         }
 
-        var _AceEditor = AceEditor;
-
-        _createDecoratedClass(_AceEditor, [{
+        _createDecoratedClass(AceEditor, [{
           key: "bind",
           value: function bind() {}
         }, {
@@ -134,59 +164,31 @@ System.register(["aurelia-framework", "ace", "ace/theme-monokai", "ace/mode-java
           value: function _beautify(code, language) {
             if (!code) return null;
 
-            code = code.split("\n").map(function (l) {
+            code = code.split('\n').map(function (l) {
               return l.trim();
-            }).join("\n");
+            }).join('\n');
 
             switch (language) {
-              case "js":
-              case "javascript":
+              case 'js':
+              case 'javascript':
                 code = js_beautify(code);
                 break;
-              case "css":
-              case "less":
+              case 'css':
+              case 'less':
                 code = css_beautify(code);
                 break;
-              case "html":
-              case "markup":
+              case 'html':
+              case 'markup':
                 code = escapeHtml(html_beautify(unescapeHtml(code)));
                 break;
             }
             return code;
           }
-        }, {
-          key: "value",
-          decorators: [bindable],
-          initializer: function initializer() {
-            return "";
-          },
-          enumerable: true
-        }], [{
-          key: "setOptions",
-          value: function setOptions(options) {
-            AceEditor.options = Object.assign(AceEditor.options, options);
-          }
-        }, {
-          key: "options",
-          value: {
-            showPrintMargin: false,
-            beautify: true,
-            mode: "javascript",
-            theme: "monokai"
-          },
-          enumerable: true
-        }, {
-          key: "uid",
-          value: 1,
-          enumerable: true
-        }, {
-          key: "inject",
-          value: [Element],
-          enumerable: true
-        }], _instanceInitializers);
+        }], null, _instanceInitializers);
 
-        AceEditor = skipContentProcessing(AceEditor) || AceEditor;
-        AceEditor = customElement("ace")(AceEditor) || AceEditor;
+        var _AceEditor = AceEditor;
+        AceEditor = processContent(false)(AceEditor) || AceEditor;
+        AceEditor = customElement('ace')(AceEditor) || AceEditor;
         AceEditor = noView(AceEditor) || AceEditor;
         return AceEditor;
       })();

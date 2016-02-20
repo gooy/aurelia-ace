@@ -10,9 +10,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer.call(target); Object.defineProperty(target, key, descriptor); }
+function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
 
-var _aureliaFramework = require("aurelia-framework");
+var _aureliaFramework = require('aurelia-framework');
 
 var _ace = require("ace");
 
@@ -22,15 +22,15 @@ require("ace/theme-monokai");
 
 require("ace/mode-javascript");
 
-var _jsBeautify = require("js-beautify");
+var _jsBeautify = require('js-beautify');
 
 var _jsBeautify2 = _interopRequireDefault(_jsBeautify);
 
-var _jsBeautifyBeautifyCss = require("js-beautify/beautify-css");
+var _jsBeautifyBeautifyCss = require('js-beautify/beautify-css');
 
 var _jsBeautifyBeautifyCss2 = _interopRequireDefault(_jsBeautifyBeautifyCss);
 
-var _jsBeautifyBeautifyHtml = require("js-beautify/beautify-html");
+var _jsBeautifyBeautifyHtml = require('js-beautify/beautify-html');
 
 var _jsBeautifyBeautifyHtml2 = _interopRequireDefault(_jsBeautifyBeautifyHtml);
 
@@ -40,6 +40,38 @@ var html_beautify = _jsBeautifyBeautifyHtml2["default"].html_beautify;
 
 var AceEditor = (function () {
   var _instanceInitializers = {};
+  var _instanceInitializers = {};
+
+  _createDecoratedClass(AceEditor, [{
+    key: "value",
+    decorators: [_aureliaFramework.bindable],
+    initializer: function initializer() {
+      return "";
+    },
+    enumerable: true
+  }], [{
+    key: "setOptions",
+    value: function setOptions(options) {
+      AceEditor.options = Object.assign(AceEditor.options, options);
+    }
+  }, {
+    key: "options",
+    value: {
+      showPrintMargin: false,
+      beautify: true,
+      mode: "javascript",
+      theme: "monokai"
+    },
+    enumerable: true
+  }, {
+    key: "uid",
+    value: 1,
+    enumerable: true
+  }, {
+    key: "inject",
+    value: [Element],
+    enumerable: true
+  }], _instanceInitializers);
 
   function AceEditor(element) {
     _classCallCheck(this, _AceEditor);
@@ -52,9 +84,7 @@ var AceEditor = (function () {
     this._uid = ++AceEditor.uid;
   }
 
-  var _AceEditor = AceEditor;
-
-  _createDecoratedClass(_AceEditor, [{
+  _createDecoratedClass(AceEditor, [{
     key: "bind",
     value: function bind() {}
   }, {
@@ -132,59 +162,31 @@ var AceEditor = (function () {
     value: function _beautify(code, language) {
       if (!code) return null;
 
-      code = code.split("\n").map(function (l) {
+      code = code.split('\n').map(function (l) {
         return l.trim();
-      }).join("\n");
+      }).join('\n');
 
       switch (language) {
-        case "js":
-        case "javascript":
+        case 'js':
+        case 'javascript':
           code = js_beautify(code);
           break;
-        case "css":
-        case "less":
+        case 'css':
+        case 'less':
           code = css_beautify(code);
           break;
-        case "html":
-        case "markup":
+        case 'html':
+        case 'markup':
           code = escapeHtml(html_beautify(unescapeHtml(code)));
           break;
       }
       return code;
     }
-  }, {
-    key: "value",
-    decorators: [_aureliaFramework.bindable],
-    initializer: function initializer() {
-      return "";
-    },
-    enumerable: true
-  }], [{
-    key: "setOptions",
-    value: function setOptions(options) {
-      AceEditor.options = Object.assign(AceEditor.options, options);
-    }
-  }, {
-    key: "options",
-    value: {
-      showPrintMargin: false,
-      beautify: true,
-      mode: "javascript",
-      theme: "monokai"
-    },
-    enumerable: true
-  }, {
-    key: "uid",
-    value: 1,
-    enumerable: true
-  }, {
-    key: "inject",
-    value: [Element],
-    enumerable: true
-  }], _instanceInitializers);
+  }], null, _instanceInitializers);
 
-  AceEditor = (0, _aureliaFramework.skipContentProcessing)(AceEditor) || AceEditor;
-  AceEditor = (0, _aureliaFramework.customElement)("ace")(AceEditor) || AceEditor;
+  var _AceEditor = AceEditor;
+  AceEditor = (0, _aureliaFramework.processContent)(false)(AceEditor) || AceEditor;
+  AceEditor = (0, _aureliaFramework.customElement)('ace')(AceEditor) || AceEditor;
   AceEditor = (0, _aureliaFramework.noView)(AceEditor) || AceEditor;
   return AceEditor;
 })();
@@ -199,7 +201,7 @@ function dedent(str) {
     return el.length;
   }));
 
-  var re = new RegExp("^[ \\t]{" + indent + "}", "gm");
-  return indent > 0 ? str.replace(re, "") : str;
+  var re = new RegExp('^[ \\t]{' + indent + '}', 'gm');
+  return indent > 0 ? str.replace(re, '') : str;
 }
 //# sourceMappingURL=ace.js.map

@@ -1,4 +1,4 @@
-import {bindable,noView,customElement,skipContentProcessing} from 'aurelia-framework';
+import {bindable,noView,customElement,processContent} from 'aurelia-framework';
 import ace from "ace";
 import "ace/theme-monokai";
 import "ace/mode-javascript";
@@ -13,7 +13,7 @@ var html_beautify = html__beautify.html_beautify;
 
 @noView
 @customElement('ace')
-@skipContentProcessing
+@processContent(false)
 export class AceEditor {
 
   static options = {
