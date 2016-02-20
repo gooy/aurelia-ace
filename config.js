@@ -16,7 +16,7 @@ System.config({
 
 System.config({
   "map": {
-    "ace": "github:ajaxorg/ace-builds@1.1.9",
+    "ace": "github:ajaxorg/ace-builds@1.2.3",
     "aurelia-animator-css": "github:aurelia/animator-css@0.13.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.14.0",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.9.0",
@@ -36,7 +36,7 @@ System.config({
     "gooy/aurelia-animator-velocity": "github:gooy/aurelia-animator-velocity@0.0.3",
     "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@0.0.2",
     "gooy/aurelia-smooth-scroll": "github:gooy/aurelia-smooth-scroll@0.0.2",
-    "js-beautify": "github:beautify-web/js-beautify@1.5.10",
+    "js-beautify": "github:beautify-web/js-beautify@1.6.2",
     "jsol": "github:daepark/JSOL@master",
     "nprogress": "github:rstacruz/nprogress@0.2.0",
     "prism": "github:PrismJS/prism@master",
@@ -153,12 +153,8 @@ System.config({
       "jquery": "github:components/jquery@2.1.4"
     },
     "github:gooy/aurelia-ace@0.0.1": {
-      "ace": "github:ajaxorg/ace-builds@1.1.9",
-      "js-beautify": "github:beautify-web/js-beautify@1.5.10"
-    },
-    "github:gooy/aurelia-animator-velocity@0.0.2": {
-      "jsol": "github:daepark/JSOL@master",
-      "velocity": "github:julianshapiro/velocity@1.2.2"
+      "ace": "github:ajaxorg/ace-builds@1.2.3",
+      "js-beautify": "github:beautify-web/js-beautify@1.6.2"
     },
     "github:gooy/aurelia-animator-velocity@0.0.3": {
       "jsol": "github:daepark/JSOL@master",

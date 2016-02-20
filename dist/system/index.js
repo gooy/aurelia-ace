@@ -6,8 +6,8 @@ System.register(["./ace"], function (_export) {
   _export("configure", configure);
 
   function configure(aurelia, cb) {
-    aurelia.globalizeResources("./ace");
-    if (cb !== undefined && typeof cb === "function") cb(AceEditor);
+    aurelia.globalResources("./ace");
+    if (cb !== undefined && typeof cb === 'function') cb(AceEditor);
   }
 
   return {
